@@ -2,59 +2,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css"/>
+    <h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
-    <div class="header">
-        <h1>CURRENCY CONVERTER</h1>
-
-        <p>The currency converter converts between SEK, NOK, DKK, EUR, USD and CAD</p>
+    <div class="header textSizeLarge">
+        <h1>Currency converter</h1>
     </div>
-    <div class="wrapper">
-        <h2>CONVERTER:</h2>
-        <div class="box">
-            <h:form>
-                <div class="row">
-                    <h:outputLabel for="fromCurrencyName" value="From currency: "/>
-                    <h:inputText id="fromCurrencyName" value="#{currencyManager.fromCurrencyName}"/>
-                </div>
-                <div class="row">
-                    <h:outputLabel for="toCurrencyName" value="To currency: "/>
-                    <h:inputText id="toCurrencyName" value="#{currencyManager.toCurrencyName}"/>
-                </div>
-                <div class="row">
-                    <h:outputLabel for="currencyAmount" value="Enter amount to convert: "/>
-                    <h:inputText id="currencyAmount" value="#{currencyManager.currencyAmount}"/>
-                </div>
-                <div class="row">
-                    <h:commandButton value="Convert" action="#{currencyManager.convertCurrency}"/>
-                </div>
-            </h:form>
+    <div class="container col-12">
+        <div class="welcome_message">
+            <p>The currency converter converts between SEK, NOK, DKK, EUR, USD and CAD</p>
         </div>
+        <div class="content col-12">
+            <div class="box col-12">
+                <h:form>
+                    <div class="row col-12">
+                        <h:inputText styleClass="input inputAmount" p:autofocus="true" p:placeholder="0" value="#{currencyManager.currencyAmount}"/>
+                        <h:inputText styleClass="input inputCurrency" p:placeholder="From" value="#{currencyManager.fromCurrencyName}"/>
+                        <h:outputText styleClass="textSizeSmall" value="↔"/>
+                        <h:inputText styleClass="input inputCurrency" p:placeholder="To" value="#{currencyManager.toCurrencyName}"/>
+                        <h:commandButton value="Convert" styleClass="commandButton" action="#{currencyManager.convertCurrency}"/>
+                    </div>
 
-        <div class="box">
-            <div class="row">
-                <h:outputLabel for="fromCurrency" value="From: "/>
-                <h:outputText id="fromCurrency" value="#{currencyManager.fromCurrency.name}"/>
-            </div>
-            <div class="row">
-                <h:outputLabel for="toCurrency" value="To: "/>
-                <h:outputText id="toCurrency" value="#{currencyManager.toCurrency.name}"/>
-            </div>
-            <div class="row">
-                <h:outputLabel for="currentRate" value="Rate: "/>
-                <h:outputText id="currentRate" value="#{currencyManager.conversionRate}"/>
-            </div>
-            <div class="row">
-                <h:outputLabel for="amount" value="Amount: "/>
-                <h:outputText id="amount" value="#{currencyManager.currencyAmount}"/>
-            </div>
-            <div class="row">
-                <h:outputLabel for="convertedValue" value="Value : "/>
-                <h:outputText id="convertedValue" value="#{currencyManager.convertedValue}"/>
+                    <div class="row col-12">
+                        <h:outputText id="amount" styleClass="textSizeSmall space" value="#{currencyManager.currencyAmount}"/>
+                        <h:outputText id="fromCurrency" styleClass="textSizeSmall space" value="#{currencyManager.fromCurrency.name}"/>
+                        <h:outputText rendered="#{currencyManager.converted}" styleClass="textSizeSmall space" value="="/>
+                        <h:outputText id="convertedValue" styleClass="textSizeMedium space" rendered="#{currencyManager.conversionRate > 0.0}" value="#{currencyManager.convertedValue}"/>
+                        <h:outputText id="toCurrency" styleClass="textSizeSmall space" value="#{currencyManager.toCurrency.name}"/>
+                    </div>
+                    <div class="row col-12">
+                        <h:outputText rendered="#{currencyManager.converted}" styleClass="textSizeSmall" value="Rate: "/>
+                        <h:outputText id="currentRate" styleClass="textSizeSmall" rendered="#{currencyManager.conversionRate > 0.0}" value="#{currencyManager.conversionRate}"/>
+                    </div>
+                </h:form>
             </div>
         </div>
     </div>

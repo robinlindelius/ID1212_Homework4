@@ -18,11 +18,6 @@ public class Controller {
     @EJB
     CurrencyDAO currencyDAO;
 
-    public void addCurrency(CurrencyDTO currencyDTO) {
-        Currency newCurrency = new Currency(currencyDTO);
-        currencyDAO.storeCurrency(newCurrency);
-    }
-
     public CurrencyDTO getCurrency(String currencyName) {
         return currencyDAO.findCurrencyByName(currencyName);
     }

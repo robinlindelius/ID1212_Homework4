@@ -1,0 +1,198 @@
+/*----------Start reset----------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+body {
+    line-height: 1;
+    color: black;
+    background: white;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
+/*-----------End reset----------*/
+
+* {
+    box-sizing: border-box;
+}
+
+em {
+    font-style: italic;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+.textSizeExtraSmall {
+    font-size: 0.5rem;
+}
+
+.textSizeSmall {
+    font-size: 1rem;
+}
+
+.textSizeMedium {
+    font-size: 2rem;
+}
+
+.textSizeLarge {
+    font-size: 3rem;
+}
+
+.space {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.header {
+    font-family: 'Lobster', cursive;
+    padding: 1rem;
+}
+
+h2 {
+    padding-bottom: 1rem;
+}
+
+p {
+    padding-bottom: 1rem;
+}
+
+.container {
+    padding: 5%;
+}
+
+.box {
+    background-color: white;
+    padding: 1rem;
+}
+
+.row {
+    height: 4rem;
+    padding-top: 1rem;
+}
+
+.converter {
+    background-color: #e4e4e4;
+}
+
+.input {
+    height: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.inputCurrency {
+    width: 3rem;
+    text-transform: uppercase;
+}
+
+.inputAmount {
+    width: 2rem;
+}
+
+.commandButton {
+    height: 2rem;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: 2px solid lightgray;
+    border-radius: 100px;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+
+    .container {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+}

@@ -24,6 +24,15 @@ public class CurrencyManager implements Serializable {
     private String currencyAmount;
     private double conversionRate;
     private double convertedValue;
+    private boolean converted;
+
+    public boolean isConverted() {
+        return converted;
+    }
+
+    public void setConverted(boolean converted) {
+        this.converted = converted;
+    }
 
     public CurrencyDTO getFromCurrency() {
         return fromCurrency;
@@ -46,7 +55,7 @@ public class CurrencyManager implements Serializable {
     }
 
     public void setFromCurrencyName(String fromCurrencyName) {
-        this.fromCurrencyName = fromCurrencyName;
+        this.fromCurrencyName = fromCurrencyName.toUpperCase();
     }
 
     public String getToCurrencyName() {
@@ -54,7 +63,7 @@ public class CurrencyManager implements Serializable {
     }
 
     public void setToCurrencyName(String toCurrencyName) {
-        this.toCurrencyName = toCurrencyName;
+        this.toCurrencyName = toCurrencyName.toUpperCase();
     }
 
     public String getCurrencyAmount() {
@@ -82,9 +91,12 @@ public class CurrencyManager implements Serializable {
     }
 
     public void convertCurrency() {
-        fromCurrency = controller.getCurrency(fromCurrencyName);
-        toCurrency = controller.getCurrency(toCurrencyName);
-        conversionRate = fromCurrency.getRate()/toCurrency.getRate();
-        convertedValue = Double.valueOf(currencyAmount) * conversionRate;
+        if (!fromCurrencyName.equals("") && !toCurrencyName.equals("")) {
+            converted = true;
+            fromCurrency = controller.getCurrency(fromCurrencyName);
+            toCurrency = controller.getCurrency(toCurrencyName);
+            conversionRate = fromCurrency.getRate() / toCurrency.getRate();
+            convertedValue = Double.valueOf(currencyAmount) * conversionRate;
+        }
     }
 }

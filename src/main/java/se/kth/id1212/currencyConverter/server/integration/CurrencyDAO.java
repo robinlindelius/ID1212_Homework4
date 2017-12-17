@@ -27,8 +27,4 @@ public class CurrencyDAO {
 
             return currency;
     }
-
-    public void storeCurrency(Currency currency) {
-        em.persist(currency);
-    }
 }
