@@ -1,7 +1,6 @@
 package se.kth.id1212.currencyConverter.server.controller;
 
 import se.kth.id1212.currencyConverter.server.integration.CurrencyDAO;
-import se.kth.id1212.currencyConverter.server.model.Currency;
 import se.kth.id1212.currencyConverter.server.model.CurrencyDTO;
 
 import javax.ejb.EJB;
